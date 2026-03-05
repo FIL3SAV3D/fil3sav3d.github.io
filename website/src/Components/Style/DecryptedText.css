@@ -1,0 +1,46 @@
+:root {
+  --header-one-font: 'JetBrainsMono-Bold';
+  --header-two-font: 'JetBrainsMono-Regular';
+  --header-three-font: 'JetBrainsMono-Thin';
+}
+
+.pc{
+    margin: 4px;
+    padding: 0;
+
+}
+
+.hd1{
+    height: fit-content;
+    font-family: var(--header-one-font);
+    font-size: 40px;
+}
+
+.he1{
+    font-family: var(--header-one-font);
+    font-size: 40px;
+}
+
+.hd2
+{
+    font-family: var(--header-two-font);
+    font-size: 30px;
+}
+
+.he2
+{
+    font-family: var(--header-two-font);
+    font-size: 30px;
+}
+
+.hd3
+{
+    font-family: var(--header-three-font);
+    font-size: 20px;
+}
+
+.he3
+{
+    font-family: var(--header-three-font);
+    font-size: 20px;
+}

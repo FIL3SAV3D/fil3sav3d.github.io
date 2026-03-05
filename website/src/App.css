@@ -1,0 +1,44 @@
+* {
+  cursor: none;
+  height: 100%;
+  margin: 0px;
+  padding: 0;
+  color: white;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  position: relative;
+  font-family: 'JetBrainsMono-Regular';
+}
+
+.NameBar {
+  height: 6em;
+  position: absolute;
+  padding: 2em;
+}
+
+.nav-bar-container {
+  width: 100%;
+  height: 9em;
+  padding: 50px;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+}
+
+.linkc
+{
+  align-items: center;
+  justify-content: center;
+}
+
+.titel {
+  font-size: large;
+}
