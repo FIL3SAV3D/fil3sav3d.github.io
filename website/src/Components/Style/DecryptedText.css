@@ -13,34 +13,40 @@
 .hd1{
     height: fit-content;
     font-family: var(--header-one-font);
-    font-size: 40px;
+    font-size: xx-large;
+    color: white;
 }
 
 .he1{
     font-family: var(--header-one-font);
-    font-size: 40px;
+    font-size: xx-large;
+    color: white;
 }
 
 .hd2
 {
     font-family: var(--header-two-font);
-    font-size: 30px;
+    font-size: large;
+    color: white;
 }
 
 .he2
 {
     font-family: var(--header-two-font);
-    font-size: 30px;
+    font-size: large;
+    color: white;
 }
 
 .hd3
 {
     font-family: var(--header-three-font);
-    font-size: 20px;
+    font-size: medium;
+    color: white;
 }
 
 .he3
 {
     font-family: var(--header-three-font);
-    font-size: 20px;
+    font-size: medium;
+    color: white;
 }

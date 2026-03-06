@@ -2,6 +2,8 @@ import React from "react";
 import "./Style/Home.css";
 import DecryptedText from "../Components/DecryptedText";
 
+import { motion } from "framer-motion";
+
 function DTH1(props) {
     const { text } = props;
     return (
@@ -53,14 +55,28 @@ function DTH3(props) {
 
 function Home() {
     return (
-        <div className="home-page-container">
-            <div className="home-page">
-                <div className="home-page-card">
+        <div className="home-page">
+            <motion.div className="card-container"
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ duration: 0.3 }}>
+                    
+                <img src="/headshot.jpg" className="headshot" />
+                <div className="card-description">
+                    <DTH3 text="Systems Programmer" />
                     <DTH1 text="Kjell Hopkins" />
-                    <DTH2 text="Systems | Tools | Rendering | Gameplay" />
-                    <DTH3 text="TESTING" />
+                    <div className="roles">
+                        <DTH2 text="Systems" />
+                        <DTH2 text=" / " />
+                        <DTH2 text="Tools" />
+                        <DTH2 text=" / " />
+                        <DTH2 text="Rendering" />
+                        <DTH2 text=" / " />
+                        <DTH2 text="Gameplay" />
+                    </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }

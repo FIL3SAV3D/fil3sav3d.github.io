@@ -105,7 +105,7 @@ const TargetCursor = ({
         const targetX = targetCornerPositionsRef.current[i].x - cursorX;
         const targetY = targetCornerPositionsRef.current[i].y - cursorY;
 
-        const finalX = currentX + (targetX - currentX);
+        const finalX = currentX + (targetX - currentX) * strength;
         const finalY = currentY + (targetY - currentY) * strength;
 
         const duration = strength >= 0.99 ? (parallaxOn ? 0.08 : 0) : 0.05;

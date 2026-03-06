@@ -35,9 +35,6 @@ export default function DecryptedText({
 }) {
   const [displayText, setDisplayText] = useState(text);
   const speed = speedinput * 10 / displayText.length ;
-  console.log(displayText.length);
-  console.log(speed);
-  
   const [isHovering, setIsHovering] = useState(false);
   const [isScrambling, setIsScrambling] = useState(false);
   const [revealedIndices, setRevealedIndices] = useState(new Set());

@@ -1,19 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion, useTime } from 'framer-motion';
+import { AnimatePresence, motion, useTime } from 'framer-motion';
 import './App.css';
 import Dither from './Dither';
 import UseWindowDimensions from './WindowUtilites';
-import Title from './Components/Title';
 import TargetCursor from './Components/TargetCursor';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 
 import DecryptedText from './Components/DecryptedText';
-import { useFrame } from '@react-three/fiber';
-import { element } from 'three/src/nodes/tsl/TSLCore.js';
+import GameProjects from './Pages/GameProjects';
+import GameEngine from './Pages/GameEngine';
+import PersonalProjects from './Pages/PersonalProjects';
 
 const names = [
   "Kjell Hopkins",
@@ -53,7 +53,7 @@ function DTH2(props) {
 function DTH3(props) {
   const { text } = props;
   return (
-    <div>
+    <div className='dht3'>
       <DecryptedText text={text}
         revealDirection="center"
         speed={30}
@@ -68,39 +68,48 @@ function DTH3(props) {
   )
 }
 
-function App() {
-  const { windowWidth, windowHeight } = UseWindowDimensions();
-  const time = useTime();
-  const currentTime = useRef();
+function ButtonBorder() {
+  return (
+    <div>
+      <div id="top-left" class="corner"></div>
+      <div id="top-right" class="corner"></div>
+      <div id="bottom-right" class="corner"></div>
+      <div id="bottom-left" class="corner"></div>
+    </div>
+  )
+}
 
-  const decryptProps = {
-    direction: "center",
-    speed: 50,
-    animateOn: "both"
-  }
-
-  const [newName, setnewName] = useState("");
-
-  const shuffle = useCallback(() => {
-    const index = Math.floor(Math.random() * names.length);
-    setnewName(names[index]);
-  }, []);
-
-  useEffect(() => {
-    const intervalID = setInterval(shuffle, 5000);
-    return () => clearInterval(intervalID);
-  }, [shuffle])
-
+function AnimatedRoutes() {
+  const location = useLocation();
 
   return (
-    <div className='App'>
+    <AnimatePresence mode='sync'>
+      <Routes location={location}
+        key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/game-projects" element={<GameProjects />} />
+        <Route path="/game-engine" element={<GameEngine />} />
+        <Route path="/personal-projects" element={<PersonalProjects />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </AnimatePresence>
+
+  )
+}
+
+function App() {
+  const dimensions = UseWindowDimensions();
+
+  return (
+    <div className='App' style={{ height: dimensions.height }}>
       <TargetCursor
         spinDuration={2}
         hideDefaultCursor={true}
         parallaxOn={true}
         hoverDuration={0.4}
       />
-      <Dither style={{ height: windowHeight }}
+      <Dither
         waveColor={[0.458, 0, 0.584]}
         disableAnimation={false}
         enableMouseInteraction
@@ -112,44 +121,62 @@ function App() {
       />
 
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <AnimatedRoutes />
 
         <div className='nav-bar-container'>
-            <Link className='cursor-target' to="/">
-                <DTH3 text="HOME" />
-            </Link> <DTH3 text="|" />
-            <Link className='cursor-target' to="/">
+          <Link className='cursor-target' to="/">
+            <div className='button-wrapper'>
+              <ButtonBorder />
+              <DTH3 text="HOME" />
+            </div>
+          </Link>
+          <div className='break' />
+          <Link className='cursor-target' to="/game-projects">
+            <div className='button-wrapper'>
+              <ButtonBorder />
               <DTH3 text="GAME PROJECTS" />
-            </Link> <DTH3 text="|" />
-            <Link className='cursor-target' to="/">
+            </div>
+          </Link>
+          <div className='break' />
+          <Link className='cursor-target' to="/game-engine">
+            <div className='button-wrapper'>
+              <ButtonBorder />
               <DTH3 text="GAME ENGINE" />
-            </Link> <DTH3 text="|" />
-            <Link className='cursor-target' to="/">
+            </div>
+          </Link>
+          <div className='break' />
+          <Link className='cursor-target' to="/personal-projects">
+            <div className='button-wrapper'>
+              <ButtonBorder />
               <DTH3 text="PERSONAL PROJECTS" />
-            </Link> <DTH3 text="|" />
-            <Link className='cursor-target' to="/">
+            </div>
+          </Link>
+          <div className='break' />
+          <Link className='cursor-target' to="/">
+            <div className='button-wrapper'>
+              <ButtonBorder />
               <DTH3 text="MUSIC" />
-            </Link> <DTH3 text="|" />
-            <Link className='cursor-target' to="/about">
+            </div>
+          </Link>
+          <div className='break' />
+          <Link className='cursor-target' to="/about">
+            <div className='button-wrapper'>
+              <ButtonBorder />
               <DTH3 text="ABOUT" />
-            </Link> <DTH3 text="|" />
-            <Link className='cursor-target' to="/contact">
+            </div>
+          </Link>
+          <div className='break' />
+          <Link className='cursor-target' to="/contact">
+            <div className='button-wrapper'>
+              <ButtonBorder />
               <DTH3 text="CONTACT" />
-            </Link>
+            </div>
+          </Link>
         </div>
 
         <div className='NameBar'>
-          <nav>
-            <Link to="/">
-              <DecryptedText text={'Kjell Hopkins'} />
-            </Link>
-          </nav>
+          <DTH1 text={'Kjell Hopkins'} />
         </div>
-
       </BrowserRouter>
     </div>
   );
