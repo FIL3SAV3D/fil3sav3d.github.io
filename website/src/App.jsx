@@ -14,6 +14,7 @@ import DecryptedText from './Components/DecryptedText';
 import GameProjects from './Pages/GameProjects';
 import GameEngine from './Pages/GameEngine';
 import PersonalProjects from './Pages/PersonalProjects';
+import BlackGold from './Pages/GameProjectPages/BlackGold';
 
 const names = [
   "Kjell Hopkins",
@@ -92,6 +93,8 @@ function AnimatedRoutes() {
         <Route path="/personal-projects" element={<PersonalProjects />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/black-gold" element={<BlackGold />} />
       </Routes>
     </AnimatePresence>
 
@@ -148,16 +151,16 @@ function App() {
           <Link className='cursor-target' to="/personal-projects">
             <div className='button-wrapper'>
               <ButtonBorder />
-              <DTH3 text="PERSONAL PROJECTS" />
+              <DTH3 text="PROJECTS" />
             </div>
           </Link>
-          <div className='break' />
+          {/* <div className='break' />
           <Link className='cursor-target' to="/">
             <div className='button-wrapper'>
               <ButtonBorder />
               <DTH3 text="MUSIC" />
             </div>
-          </Link>
+          </Link> */}
           <div className='break' />
           <Link className='cursor-target' to="/about">
             <div className='button-wrapper'>

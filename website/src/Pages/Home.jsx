@@ -57,20 +57,23 @@ function Home() {
     return (
         <div className="home-page">
             <motion.div className="card-container"
-                initial={{ y: '100%' }}
-                animate={{ y: 0 }}
-                exit={{ y: '100%' }}
-                transition={{ duration: 0.3 }}>
-                    
-                <img src="/headshot.jpg" className="headshot" />
+                initial={{ opacity: 0.0 }}
+                animate={{ opacity: 1.0 }}
+                exit={{ opacity: 0.0 }}
+                transition={{ duration: 1.0, ease: "easeInOut" }}
+                >
+                <img src="/headshot.jpg" className="headshot"/>
                 <div className="card-description">
                     <DTH3 text="Systems Programmer" />
                     <DTH1 text="Kjell Hopkins" />
+                    <hr style={{ color: 'rgba(255,255,255, 0.5)', width: '100%' }} />
                     <div className="roles">
                         <DTH2 text="Systems" />
                         <DTH2 text=" / " />
                         <DTH2 text="Tools" />
                         <DTH2 text=" / " />
+                    </div>
+                    <div className="roles">
                         <DTH2 text="Rendering" />
                         <DTH2 text=" / " />
                         <DTH2 text="Gameplay" />

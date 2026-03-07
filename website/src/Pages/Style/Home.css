@@ -11,8 +11,8 @@
 
 .card-container {
     margin-top: -100px;
-    width: 40%;
-    height: 40%;
+    width: 700px;
+    height: 400px;
 
     display: flex;
     flex-direction: row;
@@ -28,7 +28,7 @@
 }
 
 .card-description {
-    height: 150px;
+    height: 200px;
     margin: 10px;
     list-style: none;
     display: flex;
@@ -46,8 +46,9 @@
 }
 
 .headshot{
-    margin: 20px;
-    width: 200px;
-    height: 200px;
+    margin-right: 40px;
+    width: 250px;
+    height: 250px;
     clip-path: circle();
+    border: 2px solid;
 }
