@@ -76,10 +76,13 @@ function GameProjects() {
                                 <div className="card-information-text">
                                     <DTH2 text="An atmospheric management game about operating a deep-sea rig and surviving the horrors of the depths." />
                                 </div>
+                                <div className="icon-container">
+                                    <img src="icons/ps5icon.png" alt="" className="icon" />
+                                </div>
                             </div>
                         </div>
                     </Link>
-                    <Link className='cursor-target' style={{ width: '50%' }} to="/">
+                    <Link className='cursor-target' style={{ width: '50%' }} to="/opponents-in-crime">
                         <div className="game-projects-game-info-R">
                             <div className="img-border">
                                 <img src="images/opponents.png" className="black-gold-img" />
@@ -90,12 +93,16 @@ function GameProjects() {
                                 <div className="card-information-text">
                                     <DTH2 text="Burglary, the most competitive job in the world!" />
                                 </div>
+                                <div className="icon-container">
+                                    <img src="icons/windowsicon.png" alt="" className="icon" style={{paddingRight: 25}}/>
+                                    <img src="icons/ps5icon.png" alt="" className="icon" />
+                                </div>
                             </div>
                         </div>
                     </Link>
                 </div>
                 <div className="game-projects-list-bottom">
-                    <Link className='cursor-target' style={{ width: '50%', marginRight: 10 }} to="/">
+                    <Link className='cursor-target' style={{ width: '50%', marginRight: 10 }} to="/nautilus">
                         <div className="game-projects-game-info-L">
                             <div className="img-border">
                                 <img src="images/nautilus.png" className="black-gold-img" />
@@ -105,7 +112,10 @@ function GameProjects() {
                                 <hr width={250} />
 
                                 <div className="card-information-text">
-                                    <DTH2 text="An atmospheric, immersive deep-sea experience built as a visual and auditory spectacle."/>
+                                    <DTH2 text="An atmospheric, immersive deep-sea experience built as a visual and auditory spectacle." />
+                                </div>
+                                <div className="icon-container">
+                                    <img src="icons/windowsicon.png" alt="" className="icon"/>
                                 </div>
                             </div>
                         </div>

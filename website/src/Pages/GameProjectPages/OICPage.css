@@ -1,0 +1,47 @@
+.oic-page{
+width: 100%;
+height: 100%;
+backdrop-filter: blur(50px);
+background-color: rgba(10, 10, 10, 0.9);
+position: absolute;
+margin-top: 100px;
+display: flex;
+flex-direction: column;
+align-items: center;
+overflow: scroll;
+}
+
+.banner
+{
+    width: 100%;
+    height: 256px;
+    filter: blur(5px);
+}
+
+.title{
+    width: 100%;
+    height: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;   
+}
+
+.card{
+    width: 100%;
+    height: fit-content;
+}
+
+.contributions-container
+{
+    width: 50%;
+    height: fit-content;
+
+}
+
+.project-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

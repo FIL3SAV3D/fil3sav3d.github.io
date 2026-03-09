@@ -5,7 +5,13 @@
   display: flex;
   position: relative;
   font-family: 'JetBrainsMono-Regular';
-  overflow: hidden
+  overflow: hidden;
+  cursor: none;
+  pointer-events: visible;
+}
+
+.cursor-target{
+  cursor: none;
 }
 
 .NameBar {
@@ -45,6 +51,7 @@
 .button-wrapper {
   margin: 5px;
   position: relative;
+  cursor: 'none';
 }
 
 .corner {

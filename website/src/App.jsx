@@ -15,6 +15,8 @@ import GameProjects from './Pages/GameProjects';
 import GameEngine from './Pages/GameEngine';
 import PersonalProjects from './Pages/PersonalProjects';
 import BlackGold from './Pages/GameProjectPages/BlackGold';
+import OICPage from './Pages/GameProjectPages/OICPage';
+import Nautilus from './Pages/GameProjectPages/Nautilus';
 
 const names = [
   "Kjell Hopkins",
@@ -71,7 +73,7 @@ function DTH3(props) {
 
 function ButtonBorder() {
   return (
-    <div>
+    <div style={{cursor: 'none'}}>
       <div id="top-left" class="corner"></div>
       <div id="top-right" class="corner"></div>
       <div id="bottom-right" class="corner"></div>
@@ -95,6 +97,8 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/black-gold" element={<BlackGold />} />
+        <Route path="/opponents-in-crime" element={<OICPage />} />
+        <Route path="/nautilus" element={<Nautilus />} />
       </Routes>
     </AnimatePresence>
 
@@ -147,13 +151,13 @@ function App() {
               <DTH3 text="GAME ENGINE" />
             </div>
           </Link>
-          <div className='break' />
+          {/* <div className='break' />
           <Link className='cursor-target' to="/personal-projects">
             <div className='button-wrapper'>
               <ButtonBorder />
               <DTH3 text="PROJECTS" />
             </div>
-          </Link>
+          </Link> */}
           {/* <div className='break' />
           <Link className='cursor-target' to="/">
             <div className='button-wrapper'>
@@ -165,16 +169,16 @@ function App() {
           <Link className='cursor-target' to="/about">
             <div className='button-wrapper'>
               <ButtonBorder />
-              <DTH3 text="ABOUT" />
+              <DTH3 text="ABOUT ME" />
             </div>
           </Link>
-          <div className='break' />
+          {/* <div className='break' />
           <Link className='cursor-target' to="/contact">
             <div className='button-wrapper'>
               <ButtonBorder />
               <DTH3 text="CONTACT" />
             </div>
-          </Link>
+          </Link> */}
         </div>
 
         <div className='NameBar'>
