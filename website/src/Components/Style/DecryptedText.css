@@ -13,12 +13,18 @@
 .hd1{
     font-family: var(--header-one-font);
     font-size: xx-large;
+    @media only screen and (max-width: 600px) {
+    font-size: large;
+    };
     color: white;
 }
 
 .he1{
     font-family: var(--header-one-font);
     font-size: xx-large;
+    @media only screen and (max-width: 600px) {
+    font-size: large;
+    };
     color: white;
 }
 
@@ -26,6 +32,9 @@
 {
     font-family: var(--header-two-font);
     font-size: x-large;
+    @media only screen and (max-width: 600px) {
+    font-size: medium;
+    };
     color: white;
 }
 
@@ -33,6 +42,9 @@
 {
     font-family: var(--header-two-font);
     font-size: x-large;
+    @media only screen and (max-width: 600px) {
+    font-size: medium;
+    };
     color: white;
 }
 
@@ -40,6 +52,9 @@
 {
     font-family: var(--header-three-font);
     font-size: large;
+    @media only screen and (max-width: 600px) {
+    font-size: smaller;
+    };
     color: white;
 }
 
@@ -47,5 +62,8 @@
 {
     font-family: var(--header-three-font);
     font-size: large;
+    @media only screen and (max-width: 600px) {
+    font-size: smaller;
+    };
     color: white;
 }

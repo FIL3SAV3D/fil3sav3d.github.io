@@ -19,12 +19,24 @@
 
     backdrop-filter: blur(25px);
     background-color: rgba(10, 10, 10, 0.8);
-    
+
     object-fit: cover;
     justify-content: center;
     justify-items: center;
     align-items: center;
     position: relative;
+
+    @media only screen and (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: -20%;
+        width: 100%;
+        height: 60%;
+
+        object-fit: none;
+
+    }
 }
 
 .card-description {
@@ -38,6 +50,10 @@
     overflow: hidden;
     justify-items: stretch;
     margin: 0;
+    
+    @media only screen and (max-width: 600px) {
+    align-items: center;
+    }
 }
 
 .roles {
@@ -45,10 +61,19 @@
     align-items: center;
 }
 
-.headshot{
+.headshot {
     margin-right: 40px;
     width: 250px;
     height: 250px;
     clip-path: circle();
     border: 2px solid;
+
+    @media only screen and (max-width: 600px) {
+    width: 200px;
+    height: 200px;
+    clip-path: circle(100px);
+    margin-right: 0px;
+    margin-bottom: 40px;
+
+    }
 }

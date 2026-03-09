@@ -7,6 +7,9 @@ position: absolute;
 margin-top: 100px;
 display: flex;
 justify-content: center;
+@media only screen and (max-width: 600px) {
+    overflow: auto;
+}
 }
 
 .game-projects-content-container
@@ -28,6 +31,10 @@ justify-content: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+
+    @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    }
 }
 
 .game-projects-list-bottom
@@ -38,6 +45,9 @@ justify-content: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    }
 }
 
 .game-projects-game-info-L

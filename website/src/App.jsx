@@ -73,7 +73,7 @@ function DTH3(props) {
 
 function ButtonBorder() {
   return (
-    <div style={{cursor: 'none'}}>
+    <div style={{ cursor: 'none' }}>
       <div id="top-left" class="corner"></div>
       <div id="top-right" class="corner"></div>
       <div id="bottom-right" class="corner"></div>
@@ -185,6 +185,7 @@ function App() {
           <DTH1 text={'Kjell Hopkins'} />
         </div>
       </BrowserRouter>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6XKCDHDSF"></script>
     </div>
   );
 }
