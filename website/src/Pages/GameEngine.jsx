@@ -20,6 +20,21 @@ function DTH1(props) {
     )
 }
 
+function DTH1Engine(props) {
+    const { text } = props;
+    return (
+        <div>
+            <DecryptedText text={text}
+                revealDirection="center"
+                sequential={true}
+                animateOn="view"
+                className="hd1Engine"
+                encryptedClassName="he1"
+            />
+        </div>
+    )
+}
+
 function DTH2(props) {
     const { text } = props;
     return (
@@ -64,6 +79,8 @@ function GameEngine() {
             transition={{ duration: 1.0, ease: "easeInOut" }}>
             <div className="game-engine-content-container">
                 <DTH1 text="TO BE DOCUMENTED VERY SOON... WITH LOVE!" />
+                <DTH1 text="CHECK OUT THE ACTIVE DEVELOPMENT HERE: " />
+                <a href="https://github.com/FIL3SAV3D/Arcanum" className='cursor-target'><DTH1Engine text="ARCANUM"/></a>
             </div>
         </motion.div>
     )
