@@ -105,28 +105,12 @@ function AnimatedRoutes() {
   )
 }
 
+
 function App() {
   const dimensions = UseWindowDimensions();
 
   return (
     <div className='App' style={{ height: dimensions.height }}>
-      <TargetCursor
-        spinDuration={2}
-        hideDefaultCursor={true}
-        parallaxOn={true}
-        hoverDuration={0.4}
-      />
-      <Dither
-        waveColor={[0.458, 0, 0.584]}
-        disableAnimation={false}
-        enableMouseInteraction
-        mouseRadius={0}
-        colorNum={10}
-        waveAmplitude={0.1}
-        waveFrequency={8}
-        waveSpeed={0.05}
-      />
-
       <BrowserRouter>
         <AnimatedRoutes />
 
@@ -181,9 +165,9 @@ function App() {
           </Link> */}
         </div>
 
-        <div className='NameBar'>
+        {/* <div className='NameBar'>
           <DTH1 text={'Kjell Hopkins'} />
-        </div>
+        </div> */}
       </BrowserRouter>
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6XKCDHDSF"></script>
     </div>

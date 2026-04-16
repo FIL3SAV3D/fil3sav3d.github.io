@@ -245,9 +245,9 @@ function DitheredWaves({
         />
       </mesh>
 
-      <EffectComposer>
+      {/* <EffectComposer>
         <RetroEffect colorNum={colorNum} pixelSize={pixelSize} />
-      </EffectComposer>
+      </EffectComposer> */}
 
       <mesh
         onPointerMove={handlePointerMove}
