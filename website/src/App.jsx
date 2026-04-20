@@ -135,20 +135,6 @@ function App() {
               <DTH3 text="GAME ENGINE" />
             </div>
           </Link>
-          {/* <div className='break' />
-          <Link className='cursor-target' to="/personal-projects">
-            <div className='button-wrapper'>
-              <ButtonBorder />
-              <DTH3 text="PROJECTS" />
-            </div>
-          </Link> */}
-          {/* <div className='break' />
-          <Link className='cursor-target' to="/">
-            <div className='button-wrapper'>
-              <ButtonBorder />
-              <DTH3 text="MUSIC" />
-            </div>
-          </Link> */}
           <div className='break' />
           <Link className='cursor-target' to="/about">
             <div className='button-wrapper'>
@@ -156,13 +142,6 @@ function App() {
               <DTH3 text="ABOUT ME" />
             </div>
           </Link>
-          {/* <div className='break' />
-          <Link className='cursor-target' to="/contact">
-            <div className='button-wrapper'>
-              <ButtonBorder />
-              <DTH3 text="CONTACT" />
-            </div>
-          </Link> */}
         </div>
 
         {/* <div className='NameBar'>

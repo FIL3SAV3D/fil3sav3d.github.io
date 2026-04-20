@@ -1,3 +1,59 @@
+.HomeContainer
+{
+    position: absolute;
+    
+    top: 100px;
+    
+    width: 100%;
+    height: 100%;
+}
+
+.HorizontalBox{
+    padding: 10px;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    box-sizing: border-box;
+
+}
+
+.VerticalBox{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+.AboutMe{
+    margin: 10px;
+
+    width: 100%;
+
+    backdrop-filter: blur(10px);
+    background-color: rgba(10, 10, 10, 0.5);
+
+    color: white;
+}
+
+.Links{
+    margin: 10px;
+
+    height: 100%;
+
+    backdrop-filter: blur(10px);
+    background-color: rgba(10, 10, 10, 0.5);
+
+    color: white;
+}
+
+
 .home-page {
     width: 100%;
     height: 100%;
