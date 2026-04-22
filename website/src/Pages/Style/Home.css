@@ -1,48 +1,72 @@
-.HomeContainer
-{
-    position: absolute;
-    
+.HomeViewport {
     top: 100px;
-    
     width: 100%;
-    height: 100%;
 }
 
-.HorizontalBox{
-    padding: 10px;
+.HomeContainer {
+    position: relative;
+    top: 100px;
 
     width: 100%;
+}
+
+.HomeContent {
+    top: 0px;
+    width: 100%;
+
+}
+
+.HorizontalBox {
+    width: 100%;
     height: 100%;
+
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: row;
 
-    box-sizing: border-box;
-
+    @media only screen and (max-width: 1026px)
+    {
+        flex-direction: column;
+    }
 }
 
-.VerticalBox{
+.VerticalBox {
     width: 100%;
     height: 100%;
 
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
-
-    box-sizing: border-box;
 }
 
-.AboutMe{
-    margin: 10px;
-
+.BoxItem {
     width: 100%;
 
-    backdrop-filter: blur(10px);
-    background-color: rgba(10, 10, 10, 0.5);
-
-    color: white;
+    padding: 10px;
 }
 
-.Links{
+.BoxItemContainer {
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+
+    border: 1px solid var(--sec);
+    border-radius: 5px;
+
+    backdrop-filter: blur(10px);
+    background-color: var(--pri);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Links {
     margin: 10px;
 
     height: 100%;
@@ -105,9 +129,9 @@
     overflow: hidden;
     justify-items: stretch;
     margin: 0;
-    
+
     @media only screen and (max-width: 600px) {
-    align-items: center;
+        align-items: center;
     }
 }
 
@@ -116,19 +140,44 @@
     align-items: center;
 }
 
-.headshot {
-    margin-right: 40px;
-    width: 250px;
-    height: 250px;
+.HeadShotContainer {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 25%;
+    min-width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--sec);
+    border-radius: 100%;
+}
+
+.Headshot {
+    width: 100%;
     clip-path: circle();
-    border: 2px solid;
+}
 
-    @media only screen and (max-width: 600px) {
-    width: 200px;
-    height: 200px;
-    clip-path: circle(100px);
-    margin-right: 0px;
-    margin-bottom: 40px;
+#he{
+    font-family: 'Savery' !important;
+    font-size: larger;
+}
 
-    }
+.Icon{
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+#FlexCenter{
+    justify-content: center;
+    align-items: center;
+}
+
+#FlexForceRowCenter{
+    justify-content: center;
+    align-items: center;
+    flex-direction: row !important;
 }

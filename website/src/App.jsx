@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useTime } from 'framer-motion';
+
+import './custom.scss';
 import './App.css';
+
 import Dither from './Dither';
 import UseWindowDimensions from './WindowUtilites';
 import TargetCursor from './Components/TargetCursor';
@@ -10,7 +13,6 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 
-import DecryptedText from './Components/DecryptedText';
 import GameProjects from './Pages/GameProjects';
 import GameEngine from './Pages/GameEngine';
 import PersonalProjects from './Pages/PersonalProjects';
@@ -18,66 +20,23 @@ import BlackGold from './Pages/GameProjectPages/BlackGold';
 import OICPage from './Pages/GameProjectPages/OICPage';
 import Nautilus from './Pages/GameProjectPages/Nautilus';
 
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
 const names = [
   "Kjell Hopkins",
   "FIL3SAV3D"
 ]
 
-function DTH1(props) {
-  const { text } = props;
-  return (
-    <div>
-      <DecryptedText text={text}
-        revealDirection="center"
-        sequential={true}
-        animateOn="both"
-        className="hd1"
-        encryptedClassName="he1"
-      />
-    </div>
-  )
-}
-
-function DTH2(props) {
-  const { text } = props;
-  return (
-    <div>
-      <DecryptedText text={text}
-        revealDirection="center"
-        sequential={true}
-        animateOn="both"
-        className="hd2"
-        encryptedClassName="he2"
-      />
-    </div>
-  )
-}
-
-function DTH3(props) {
-  const { text } = props;
-  return (
-    <div className='dht3'>
-      <DecryptedText text={text}
-        revealDirection="center"
-        speed={30}
-        maxIterations={10}
-        sequential={true}
-        animateOn="both"
-        className="hd3"
-        parentClassName='pc'
-        encryptedClassName="he3"
-      />
-    </div>
-  )
-}
-
 function ButtonBorder() {
   return (
-    <div style={{ cursor: 'none' }}>
-      <div id="top-left" class="corner"></div>
-      <div id="top-right" class="corner"></div>
-      <div id="bottom-right" class="corner"></div>
-      <div id="bottom-left" class="corner"></div>
+    <div>
+      <div className="ButtonBoarder">
+        <div id="top-left" class="corner"></div>
+        <div id="top-right" class="corner"></div>
+        <div id="bottom-right" class="corner"></div>
+        <div id="bottom-left" class="corner"></div>
+      </div>
     </div>
   )
 }
@@ -101,54 +60,101 @@ function AnimatedRoutes() {
         <Route path="/nautilus" element={<Nautilus />} />
       </Routes>
     </AnimatePresence>
-
   )
 }
 
+function NavBarLinkButton(props) {
+  const { text } = props;
+  return (
+    <div className='button-wrapper'>
+      <div className="ButtonBoarder">
+        <h5>{text}</h5>
+        <div id="top-left" class="corner"></div>
+        <div id="top-right" class="corner"></div>
+        <div id="bottom-right" class="corner"></div>
+        <div id="bottom-left" class="corner"></div>
+      </div>
+    </div>
+  )
+}
+
+function NB_DropDown() {
+  return (
+    <div className='NavBar_ItemDropDown' id='IsMobileOnly'>
+      <Dropdown className="NavBar_DropDown">
+
+        <Dropdown.Toggle className="NavBarDropDownButton">
+          <img src="icons/dropdown.svg" alt="" className="Logo" id='FilterInvert' />
+          <div id="top-left" class="corner"></div>
+          <div id="top-right" class="corner"></div>
+          <div id="bottom-right" class="corner"></div>
+          <div id="bottom-left" class="corner"></div>
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          <Link className="Link" to="/">
+            <Dropdown.Item as="button">Home</Dropdown.Item>
+          </Link>
+          <Link className="Link" to="/game-projects">
+            <Dropdown.Item as="button">Game Projects</Dropdown.Item>
+          </Link>
+          <Link className="Link" to="/game-engine">
+            <Dropdown.Item as="button">Game Engine</Dropdown.Item>
+          </Link>
+          <Link className="Link" to="/about">
+            <Dropdown.Item as="button">About Me</Dropdown.Item>
+          </Link>
+        </Dropdown.Menu>
+
+      </Dropdown>
+    </div>
+  )
+}
 
 function App() {
   const dimensions = UseWindowDimensions();
 
   return (
-    <div className='App' style={{ height: dimensions.height }}>
-      <BrowserRouter>
-        <AnimatedRoutes />
+    <div className='App'>
+      <div className='AppViewport'>
 
-        <div className='nav-bar-container'>
-          <Link className='cursor-target' to="/">
-            <div className='button-wrapper'>
-              <ButtonBorder />
-              <DTH3 text="HOME" />
-            </div>
-          </Link>
-          <div className='break' />
-          <Link className='cursor-target' to="/game-projects">
-            <div className='button-wrapper'>
-              <ButtonBorder />
-              <DTH3 text="GAME PROJECTS" />
-            </div>
-          </Link>
-          <div className='break' />
-          <Link className='cursor-target' to="/game-engine">
-            <div className='button-wrapper'>
-              <ButtonBorder />
-              <DTH3 text="GAME ENGINE" />
-            </div>
-          </Link>
-          <div className='break' />
-          <Link className='cursor-target' to="/about">
-            <div className='button-wrapper'>
-              <ButtonBorder />
-              <DTH3 text="ABOUT ME" />
-            </div>
-          </Link>
-        </div>
+        <BrowserRouter>
+          <div className="NavBarViewport">
+            <div className="NavbarContent">
+              <div className="NavBarItem">
+                <div className="NavbarLogo">
+                  <img src="images/HomeIcon.png" alt="" className="Logo" />
+                </div>
+              </div>
 
-        {/* <div className='NameBar'>
-          <DTH1 text={'Kjell Hopkins'} />
-        </div> */}
-      </BrowserRouter>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6XKCDHDSF"></script>
+              <div className="Navbar_Item_Links" id='IsPCOnly'>
+                <Link className="Link" to="/">
+                  <NavBarLinkButton text="Home" />
+                </Link>
+                <Link className="Link" to="/game-projects">
+                  <div className='button-wrapper'>
+                    <NavBarLinkButton text="Game Projects" />
+                  </div>
+                </Link>
+                <Link className="Link" to="/game-engine">
+                  <div className='button-wrapper'>
+                    <NavBarLinkButton text="Game Engine" />
+                  </div>
+                </Link>
+                <Link className="Link" to="/about">
+                  <div className='button-wrapper'>
+                    <NavBarLinkButton text="About Me" />
+                  </div>
+                </Link>
+              </div>
+              <NB_DropDown/>
+            </div>
+          </div>
+
+          <AnimatedRoutes />
+        </BrowserRouter>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6XKCDHDSF"></script>
+      </div>
     </div>
   );
 }

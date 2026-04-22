@@ -1,8 +1,10 @@
 .bgVideo{
-    width: 100%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    z-index: -10;
+
+    min-width: 100%;
+    min-height: 100%;
 }
