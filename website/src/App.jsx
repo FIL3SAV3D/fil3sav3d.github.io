@@ -121,7 +121,7 @@ function App() {
         <BrowserRouter>
           <div className="NavBarViewport">
             <div className="NavbarContent">
-              <div className="NavBarItem">
+              <div className="NavBarItem" style={{width: '50%'}}>
                 <div className="NavbarLogo">
                   <img src="images/HomeIcon.png" alt="" className="Logo" />
                 </div>
@@ -132,19 +132,13 @@ function App() {
                   <NavBarLinkButton text="Home" />
                 </Link>
                 <Link className="Link" to="/game-projects">
-                  <div className='button-wrapper'>
                     <NavBarLinkButton text="Game Projects" />
-                  </div>
                 </Link>
                 <Link className="Link" to="/game-engine">
-                  <div className='button-wrapper'>
-                    <NavBarLinkButton text="Game Engine" />
-                  </div>
+                    <NavBarLinkButton text="Specialization: Game Engine" />
                 </Link>
                 <Link className="Link" to="/about">
-                  <div className='button-wrapper'>
                     <NavBarLinkButton text="About Me" />
-                  </div>
                 </Link>
               </div>
               <NB_DropDown/>

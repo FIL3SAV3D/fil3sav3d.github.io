@@ -42,3 +42,8 @@ $theme-colors: (
 @import "../node_modules/bootstrap/scss/helpers";
 
 @import "../node_modules/bootstrap/scss/dropdown";
+
+a {
+  color: white;
+  text-decoration: none;
+}

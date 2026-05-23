@@ -7,7 +7,7 @@ export function VideoBG(props) {
     return (
         <motion.div className="bgVideo"
             initial={{ filter: "blur(0px)" }}
-            animate={{ filter: "blur(2px)", transition: { ease: "easeOut", duration: 1.5 } }}
+            animate={{ filter: "blur(5px)", transition: { ease: "easeOut", duration: 1.5 } }}
             exit={{ filter: "blur(0px)", transition: { ease: "easeIn", duration: 0.22 } }}
         >
             <video autoPlay={true} muted={true} loop={true} controls={false}>
