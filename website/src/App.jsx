@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion, useTime } from 'framer-motion';
+import { AnimatePresence, motion, useAnimate, useMotionValue, useTime } from 'framer-motion';
 
 import './custom.scss';
 import './App.css';
@@ -23,10 +23,16 @@ import Nautilus from './Pages/GameProjectPages/Nautilus';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
+import Sidebar from './Components/Sidebar';
+import SidebarItem from './Components/SidebarItem';
+import { VideoBG } from './Components/BGVideo';
+
 const names = [
   "Kjell Hopkins",
   "FIL3SAV3D"
 ]
+
+
 
 function ButtonBorder() {
   return (
@@ -41,14 +47,14 @@ function ButtonBorder() {
   )
 }
 
-function AnimatedRoutes() {
+function AnimatedRoutes({ ECRef, AMRef, GPRef, SPRef }) {
   const location = useLocation();
 
   return (
     <AnimatePresence mode='sync'>
       <Routes location={location}
         key={location.pathname}>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home EntryCardRef={ECRef} AboutMeRef={AMRef} GameProjectRef={GPRef} SpecializationRef={SPRef} />} />
         <Route path="/game-projects" element={<GameProjects />} />
         <Route path="/game-engine" element={<GameEngine />} />
         <Route path="/personal-projects" element={<PersonalProjects />} />
@@ -63,90 +69,31 @@ function AnimatedRoutes() {
   )
 }
 
-function NavBarLinkButton(props) {
-  const { text } = props;
-  return (
-    <div className='button-wrapper'>
-      <div className="ButtonBoarder">
-        <h5>{text}</h5>
-        <div id="top-left" class="corner"></div>
-        <div id="top-right" class="corner"></div>
-        <div id="bottom-right" class="corner"></div>
-        <div id="bottom-left" class="corner"></div>
-      </div>
-    </div>
-  )
-}
-
-function NB_DropDown() {
-  return (
-    <div className='NavBar_ItemDropDown' id='IsMobileOnly'>
-      <Dropdown className="NavBar_DropDown">
-
-        <Dropdown.Toggle className="NavBarDropDownButton">
-          <img src="icons/dropdown.svg" alt="" className="Logo" id='FilterInvert' />
-          <div id="top-left" class="corner"></div>
-          <div id="top-right" class="corner"></div>
-          <div id="bottom-right" class="corner"></div>
-          <div id="bottom-left" class="corner"></div>
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Link className="Link" to="/">
-            <Dropdown.Item as="button">Home</Dropdown.Item>
-          </Link>
-          <Link className="Link" to="/game-projects">
-            <Dropdown.Item as="button">Game Projects</Dropdown.Item>
-          </Link>
-          <Link className="Link" to="/game-engine">
-            <Dropdown.Item as="button">Game Engine</Dropdown.Item>
-          </Link>
-          <Link className="Link" to="/about">
-            <Dropdown.Item as="button">About Me</Dropdown.Item>
-          </Link>
-        </Dropdown.Menu>
-
-      </Dropdown>
-    </div>
-  )
-}
-
 function App() {
-  const dimensions = UseWindowDimensions();
+  const EntryCardRef = useRef(null);
+  const AboutMeRef = useRef(null);
+  const GameProjectRef = useRef(null);
+  const SpecializationRef = useRef(null);
+
+  const [scope, animate] = useAnimate();
+
+  const parentRef = useRef(null);
 
   return (
     <div className='App'>
-      <div className='AppViewport'>
-
+      <div className='AppViewport' id='AppViewport'>
         <BrowserRouter>
-          <div className="NavBarViewport">
-            <div className="NavbarContent">
-              <div className="NavBarItem" style={{width: '50%'}}>
-                <div className="NavbarLogo">
-                  <img src="images/HomeIcon.png" alt="" className="Logo" />
-                </div>
-              </div>
-
-              <div className="Navbar_Item_Links" id='IsPCOnly'>
-                <Link className="Link" to="/">
-                  <NavBarLinkButton text="Home" />
-                </Link>
-                <Link className="Link" to="/game-projects">
-                    <NavBarLinkButton text="Game Projects" />
-                </Link>
-                <Link className="Link" to="/game-engine">
-                    <NavBarLinkButton text="Specialization: Game Engine" />
-                </Link>
-                <Link className="Link" to="/about">
-                    <NavBarLinkButton text="About Me" />
-                </Link>
-              </div>
-              <NB_DropDown/>
-            </div>
+          <Sidebar scope={scope} animate={animate} ParentRef={parentRef}>
+            <SidebarItem inputText={"Home"} imgSrc="icons/HomeW.png" imgOverlaySrc="icons/HomeB.png" link={"/"} elementRef={EntryCardRef} />
+            <SidebarItem inputText={"About Me"} imgSrc="icons/InfoW.png" imgOverlaySrc="icons/InfoB.png" link={"/"} elementRef={AboutMeRef} />
+            <SidebarItem inputText={"Game Projects"} imgSrc="icons/GamesW.png" imgOverlaySrc="icons/GamesB.png" link={"/"} elementRef={GameProjectRef} />
+            <SidebarItem inputText={"Specialization"} imgSrc="icons/ArcanumBW.png" imgOverlaySrc="icons/ArcanumB.png" link={"/"} elementRef={SpecializationRef} />
+          </Sidebar>
+          <div ref={scope} id='PageViewport' style={{width: "100%", height: "100%", zIndex: 5, overflow: "hidden"}}>
+            <AnimatedRoutes ECRef={EntryCardRef} AMRef={AboutMeRef} GPRef={GameProjectRef} SPRef={SpecializationRef} />
           </div>
-
-          <AnimatedRoutes />
         </BrowserRouter>
+        <VideoBG source="videos/VideoHomeBG.mp4" />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6XKCDHDSF"></script>
       </div>
     </div>

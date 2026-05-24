@@ -43,7 +43,12 @@ $theme-colors: (
 
 @import "../node_modules/bootstrap/scss/dropdown";
 
+
 a {
   color: white;
   text-decoration: none;
 }
+
+$mobile-threshold: 1280px;
+
+@import "./Pages/Style/Home.scss";
